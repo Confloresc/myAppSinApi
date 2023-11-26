@@ -1,0 +1,40 @@
+<!-- scanner.page.html -->
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start" (click)="goToLoginPage()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Alumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="white-banner">
+    <p class="banner-text">Sede: Antonio Varas</p>
+  </div>
+
+  <div class="titulo1">
+    <div class="user-info">
+      <p>Nombre: {{ nombre }}</p>
+      <p>Correo Electrónico: {{ correoElectronico }}</p>
+    </div>
+    <div class="subTitulo1">Asistencia</div>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label position="stacked">{{ barcode.format }}</ion-label>
+      <ion-input type="text" [value]="barcode.rawValue"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <video #video [hidden]="!isSupported" width="100%"></video>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
+      <ion-icon name="scan"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

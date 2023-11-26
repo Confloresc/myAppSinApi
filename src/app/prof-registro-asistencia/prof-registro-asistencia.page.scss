@@ -1,0 +1,68 @@
+ion-toolbar.custom-toolbar {
+    --ion-background-color: #000342; /* Cambia el color de fondo según tus preferencias */
+  }
+  
+  ion-title {
+    color: white; /* Cambia el color del texto a blanco */
+    text-align: right; /* Alinea el texto a la izquierda */
+  }
+  
+  /* Estilo para la franja amarilla */
+  ion-header::after {
+    content: "";
+    display: block;
+    background-color: rgb(255, 196, 0);
+    height: 30px;
+  }
+
+
+
+ion-content {
+    --ion-background-color: #f4f4f4; // Cambia el color de fondo según tus preferencias     
+}
+.title{
+    background-color: #000342;
+    color:white;
+}
+
+
+.subTitulo1{
+    padding: 3%;
+    color:white;
+    font-size: x-large;
+    margin-left: 10%;
+}
+.texto1{
+    padding-top: 5%;
+    margin-left: 8%;
+}
+.subTexto1{
+    padding-top: 4%;
+}
+.calendario{
+   margin-left: 8%;
+   margin-top: 10%;
+   margin-bottom: 5%;   
+}
+
+ion-datetime{
+    background-color:white;
+}
+
+.titleListaCursos{
+    text-align: center;
+    
+}
+
+.listaCursos{
+   display: inline-block;
+   padding: 10px 20px; /* Ajusta el espaciado interno según tus necesidades */
+   background-color: #007bff; /* Color de fondo del botón */
+   color: #fff; /* Color del texto del botón */
+   border: 1px solid #007bff; /* Borde del botón */
+   border-radius: 5px; /* Borde redondeado */
+   width: 80%;
+   margin-left: 10%;
+   margin-top: 3%;
+   
+}

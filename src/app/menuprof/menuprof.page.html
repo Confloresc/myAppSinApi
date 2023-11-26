@@ -1,0 +1,35 @@
+<app-header-teacher></app-header-teacher>
+
+<ion-content [fullscreen]="true"> 
+
+  <div class="titulo1 text">
+    <div class="user-info">
+      <p>Nombre: {{ nombre }}</p>
+      <p>Correo Electrónico: {{ correoElectronico }}</p>
+    </div>   
+  </div>
+
+  <div class="texto1 text">
+    <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
+  </div>
+
+<div class="botones">
+  <ion-button class="texto-izquierda" fill="clear" expand="full" routerLink="/prof-registro-asistencia" (click)="navigateAsistencia()">
+    <ion-icon name="square" style="color: rgb(239, 232, 155);"></ion-icon>
+    Registrar asistencia
+  </ion-button>
+  <ion-button class="texto-izquierda" fill="clear" expand="full" routerLink="/cursos" (click)="navigateAsistenciareg()">
+    <ion-icon name="square" style="color: rgb(239, 232, 155);"></ion-icon>
+    Revisar asistencia
+  </ion-button>
+</div>
+
+
+<ion-card class="alertaProf">
+  <ion-card-content>Tienes una clase pendiente</ion-card-content>
+</ion-card>
+
+
+
+
+  </ion-content>

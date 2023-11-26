@@ -1,0 +1,74 @@
+ion-toolbar.custom-toolbar {
+  --ion-background-color: #000342; /* Cambia el color de fondo según tus preferencias */
+}
+
+ion-title {
+  color: white; /* Cambia el color del texto a blanco */
+  text-align: right; /* Alinea el texto a la izquierda */
+}
+
+/* Estilo para la franja amarilla */
+ion-header::after {
+  content: "";
+  display: block;
+  background-color: rgb(255, 196, 0);
+  height: 30px;
+}
+/* Estilos para la franja negra en el pie de página */
+.black-footer {
+  background-color: black;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+/* Estilos para la franja blanca con texto */
+.white-banner {
+  background-color: rgb(227, 227, 227);
+  height: 20px;
+  margin-top: 10; 
+}
+
+/* Estilos para el texto en la franja blanca */
+.banner-text {
+  color: black; /* Cambia el color del texto según tus preferencias */
+  font-size: 12px; /* Ajusta el tamaño de fuente según tus necesidades */
+  text-align: left; /* Alinea el texto al centro */
+  margin: 0; /* Elimina el margen por defecto */
+  
+}
+
+// Hide all elements
+body.barcode-scanner-active {
+  visibility: hidden;
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+// Show only the barcode scanner modal
+.barcode-scanner-modal {
+  visibility: visible;
+}
+
+@media (prefers-color-scheme: dark) {
+  .barcode-scanner-modal {
+    --background: transparent;
+    --ion-background-color: transparent;
+  }
+}
+
+// Hide all elements
+body.barcode-scanner-active {
+  visibility: hidden;
+}
+
+// Show only the barcode scanner modal
+.barcode-scanner-modal {
+  visibility: visible;
+}

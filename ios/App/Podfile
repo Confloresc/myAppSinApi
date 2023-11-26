@@ -1,0 +1,42 @@
+# Asegurar que el despliegue objetivo de iOS sea al menos 13.0
+def assertDeploymentTarget(installer)
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      deployment_target = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f
+      should_upgrade = deployment_target < 13.0 && deployment_target != 0.0
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0' if should_upgrade
+    end
+  end
+end
+
+# Especificar el espacio de trabajo
+workspace 'App'
+
+# Especificar la plataforma y el uso de frameworks
+platform :ios, '13.0'  # Ajustar el objetivo de implementación mínimo
+use_frameworks!
+
+# Configuración para evitar el almacenamiento en caché de Xcode de Pods (requiere CocoaPods 1.6 o superior)
+install! 'cocoapods', :disable_input_output_paths => true
+
+# Definir dependencias de Capacitor
+def capacitor_pods
+  pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
+  pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
+  pod 'CapacitorMlkitBarcodeScanning', :path => '../../node_modules/@capacitor-mlkit/barcode-scanning'
+  pod 'CapacitorApp', :path => '../../node_modules/@capacitor/app'
+  pod 'CapacitorCamera', :path => '../../node_modules/@capacitor/camera'
+  pod 'CapacitorHaptics', :path => '../../node_modules/@capacitor/haptics'
+  pod 'CapacitorKeyboard', :path => '../../node_modules/@capacitor/keyboard'
+  pod 'CapacitorStatusBar', :path => '../../node_modules/@capacitor/status-bar'
+end
+
+# Definir el objetivo 'App' y sus dependencias
+target 'App' do
+  capacitor_pods
+end
+
+# Configuración adicional después de la instalación
+post_install do |installer|
+  assertDeploymentTarget(installer)
+end
