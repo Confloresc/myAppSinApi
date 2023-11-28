@@ -1,7 +1,7 @@
 // scanner.page.ts
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { BarcodeScanner, Barcode } from '@capacitor-mlkit/barcode-scanning'; // Agregar esta línea
+import { BarcodeScanner, Barcode } from '@capacitor-mlkit/barcode-scanning';
 import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
@@ -60,6 +60,12 @@ export class ScannerPage {
         this.presentAlert('Por favor, concede permisos de cámara para usar el escáner de códigos de barras.');
         return;
       }
+
+      // Llama a la función startCamera() al hacer clic en el botón de escaneo
+      this.startCamera();
+
+      // Opcional: Puedes seguir utilizando BarcodeScanner.scan() si necesitas
+      // realizar alguna acción específica después de escanear un código de barras.
       const { barcodes } = await BarcodeScanner.scan();
       this.barcodes.push(...barcodes);
     } catch (error) {
