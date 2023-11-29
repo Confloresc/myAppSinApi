@@ -1,4 +1,4 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-img src="assets/top.png"></ion-img>
 </ion-header>
 
@@ -47,4 +47,68 @@
 
    
   </form>
+</ion-content> -->
+
+<ion-header [translucent]="true">
+  <ion-img src="assets/top.png"></ion-img>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="custom-content">
+  <ion-header collapse="condense">
+  </ion-header>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm" class="custom-input" style="margin-top: 40px;">
+    <ion-item color="light" class="custom-input">
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input
+        type="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item color="light" class="custom-input">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input
+        type="password"
+        name="password"
+        [(ngModel)]="user.password"
+        [minlength]="1"
+        [maxlength]="12"
+        [required]="true"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button
+      type="submit"
+      expand="full"
+      [disabled]="!loginForm.valid"
+      color="warning"
+    >
+      Iniciar Sesión
+    </ion-button>
+
+    <div class="forgot-password-link">
+      <a href="#">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <!-- Mostrar mensajes de error -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+
+  <!-- Nuevas secciones basadas en el tipo de usuario -->
+  <div *ngIf="foundUser && foundUser.tipo === 'profesor'">
+    <!-- Sección para profesores -->
+    <p>Bienvenido Profesor {{ foundUser.nombre }}</p>
+    <!-- Agrega aquí cualquier contenido específico para profesores -->
+  </div>
+
+  <div *ngIf="foundUser && foundUser.tipo === 'alumno'">
+    <!-- Sección para alumnos -->
+    <p>Bienvenido Alumno {{ foundUser.nombre }}</p>
+    <!-- Agrega aquí cualquier contenido específico para alumnos -->
+  </div>
 </ion-content>
