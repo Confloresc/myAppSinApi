@@ -23,10 +23,7 @@ export class ScannerPage {
     private toastController: ToastController
   ) {}
 
-  async ngOnInit() {
-    this.checkScannerSupport();
-    this.startCamera();
-  }
+  
 
   async checkScannerSupport(): Promise<void> {
     try {
@@ -38,7 +35,7 @@ export class ScannerPage {
       this.presentAlert('Escáner no compatible');
     }
   }
-
+  
   async startCamera() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
