@@ -35,3 +35,14 @@ ion-toolbar.custom-toolbar {
     padding-top: 15%;
     text-align: center;
 }
+
+.container-with-margin {
+  margin-left: 20px; /* Ajusta el valor según tus preferencias */
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ajusta según sea necesario */
+}
