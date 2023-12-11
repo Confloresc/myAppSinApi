@@ -1,16 +1,19 @@
-<ion-content [fullscreen]="true">
-  <h2>Clase</h2>
-  <p>ID: {{ id }}</p>
-  <p>Curso: {{ nombre }}</p>
-  <p>Sección: {{ seccion }}</p>
-  <p>Horario: {{ horario }}</p>
+<app-header-teacher></app-header-teacher>
 
-  <ion-text color="primary">
-    <h1>GENERAR QR</h1>
-  </ion-text>
-  
-  <!-- Aquí utilizamos *ngIf para mostrar el QR solo si 'text' tiene un valor -->
-  <div *ngIf="text">
-    <qrcode [qrdata]="text" [width]="400"></qrcode>
+<ion-content [fullscreen]="true">
+  <div class="container-with-margin">
+    <h2 class="h2">Clase</h2>
+    <p>Curso: {{ nombre }}</p>
+    <p>Curso: {{ sala }}</p>
+    <p>Sección: {{ seccion }}</p>
+    <p>Horario: {{ horario }}</p>
+
+    <ion-text color="primary">
+      <h1></h1>
+    </ion-text>
+
+    <div class="centered-container" *ngIf="text">
+      <qrcode [qrdata]="text" [width]="400"></qrcode>
+    </div>
   </div>
 </ion-content>
