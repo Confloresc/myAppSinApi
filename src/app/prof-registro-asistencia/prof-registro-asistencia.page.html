@@ -1,34 +1,24 @@
 <app-header-teacher></app-header-teacher>
 
 <ion-content [fullscreen]="true">
+  <div>
+    <div class="titulo1">
+      <div class="user-info" style="margin-left: 20px;"> <!-- Ajusta el valor de margin-left según tus necesidades -->
+        <p>Nombre: {{ nombre }}</p>
+        <p>Correo Electrónico: {{ correoElectronico }}</p>
+        <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
+      </div>
+    </div>
   
-  <div class="titulo1">
-    <div class="user-info">
-      <p>Nombre: {{ nombre }}</p>
-      <p>Correo Electrónico: {{ correoElectronico }}</p>
+    <div class="texto1">
+      <div class="subTexto1"><strong>Selecciona la clase para registrar la asistencia</strong></div>
     </div>
-  </div>
- 
-  <div class="texto1">
-    <div class="subTexto1"><strong>Sede:</strong> Antonio Varas</div>
-    <div class="subTexto1"><strong>Selecciona el dia para registrar la asistencia</strong></div>
-  </div>
 
-
-
-   <div class="calendario">
-    <ion-datetime></ion-datetime>
-   </div>
-   <h1 class="titleListaCursos">Cursos</h1>
+    <h1 class="titleListaCursos">Cursos</h1>
     <div class="listaCursos" *ngFor="let objeto of objetos" (click)="navegarADetalle(objeto.id, objeto.nombre, objeto.seccion, objeto.sala, objeto.horario)">
-        {{ objeto.nombre }} {{ objeto.horario }}<br>Sección:{{objeto.seccion}} <br>Sala:{{objeto.sala}}
+      {{ objeto.nombre }} {{ objeto.horario }}<br>Sección:{{objeto.seccion}} <br>Sala:{{objeto.sala}}
     </div>
- 
+  </div>
 </ion-content>
-
-
-
-
- 
 
 

@@ -17,10 +17,10 @@
 
   <div class="titulo1">
     <div class="user-info">
-      <p>Nombre: {{ nombre }}</p>
-      <p>Correo Electrónico: {{ correoElectronico }}</p>
+      <p>Nombre: Astrid Gonzalez</p>
+      <p>Correo Electrónico: a.gonzalez@duocuc.cl</p>
     </div>
-    <div class="subTitulo1">Asistencia</div>
+    <div class="subTitulo1">Registro de Asistencia</div>
   </div>
 
   <ion-list>
@@ -30,11 +30,6 @@
     </ion-item>
   </ion-list>
 
-  <video #video [hidden]="!isSupported" width="100%"></video>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="scan()" [disabled]="!isSupported">
-      <ion-icon name="scan"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+
 </ion-content>
